@@ -1,0 +1,42 @@
+<html>
+
+<body>
+
+    {% include "superior/barra.html"%}
+    <h1>
+        
+        Hola estoy empezando Django 
+    </h1>
+
+    {% if Persona.nombre == 'Uriel'%}
+        <p>el autor soy yo xD</p>
+        {% else %}
+            <p>el Autor es: {{Persona.nombre|upper}} {{Persona.apellido.upper}} </p>
+    {% endif %}
+
+    {% comment %}
+        Esto es un comentario que
+        tiene mas de una
+        linea y por eso se utiliza este  comenado
+    {% endcomment %}
+    {# esto es un comentario de una sola linea #}
+    
+    <p>La fecha es : {{fecha.day}}/{{fecha.month}}/{{fecha.year}}</p>
+
+    <p><strong>Temas del curso:</strong></p>
+    <p>
+        <ul>
+            {% if temas %}
+            
+                {% for elTema in temas %}
+                    <li>{{elTema|first|lower}}</li>
+                {% endfor %}
+                {% else %}
+                    <p>No hay elementos que mostrar</p>
+             
+            {% endif %}
+        </ul>
+    </p>
+</body>
+
+</html>
